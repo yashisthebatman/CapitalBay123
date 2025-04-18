@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CapitalBay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-login">
+
+    <header>
+        <h1>CapitalBay</h1>
+        <p>Connecting Innovators and Investors</p>
+    </header>
+
+     <nav>
+        <a href="index.html">Browse Startups</a>
+        <!-- **** MODIFIED BLOCK **** -->
+        <span id="startup-links" style="display: none;">
+             <a href="my-startup.html">Update Profile</a>
+        </span>
+         <!-- **** END MODIFIED BLOCK **** -->
+        <span id="investor-links" style="display: none;"></span>
+        <span id="public-links">
+            <a href="login.html" class="active">Login</a>
+            <a href="register.html">Register</a>
+        </span>
+        <span id="user-links" style="display: none;"></span>
+    </nav>
+
+    <main>
+         <form id="login-form" class="auth-form initially-hidden">
+            <h2>Login</h2>
+            <div id="message-area"></div> <!-- Area for success/error messages -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+             <p class="text-center mt-2">
+                Don't have an account? <a href="register.html">Register here</a>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 CapitalBay. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Startup Profile - CapitalBay</title> <!-- Changed Title -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-my-startup"> <!-- ID used in JS to check user type -->
+
+    <header>
+        <h1>CapitalBay</h1>
+        <p>Connecting Innovators and Investors</p>
+    </header>
+
+     <nav>
+        <a href="index.html">Browse Startups</a>
+        <span id="startup-links" style="display: none;">
+             <a href="my-startup.html">Update Profile</a>
+        </span>
+        <span id="investor-links" style="display: none;"></span>
+        <span id="public-links" style="display: none;">
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </span>
+        <span id="user-links" style="display: none;"></span>
+    </nav>
+
+    <main class="initially-hidden">
+        <h2>My Startup Dashboard</h2> <!-- Keep H2 as Dashboard, but nav link is Update -->
+
+         <!-- Section to Edit Profile Details -->
+         <section class="detail-section">
+             <h3>Edit Profile Details</h3>
+             <div id="profile-message-area"></div>
+             <form id="startup-profile-form">
+                 <div class="form-group">
+                    <label for="edit-company_name">Company Name</label>
+                    <input type="text" id="edit-company_name" name="company_name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-description">Company Description</label>
+                    <textarea id="edit-description" name="description"></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="edit-industry">Industry</label>
+                    <input type="text" id="edit-industry" name="industry">
+                </div>
+                 <div class="form-group">
+                    <label for="edit-website">Website URL</label>
+                    <input type="url" id="edit-website" name="website">
+                </div>
+                 <div class="form-group">
+                    <label for="edit-logo_url">Logo URL</label>
+                    <input type="url" id="edit-logo_url" name="logo_url">
+                </div>
+                 <div class="form-group">
+                    <label for="edit-contact_phone">Contact Phone</label>
+                    <input type="tel" id="edit-contact_phone" name="contact_phone">
+                </div>
+                 <!-- **** MODIFIED: Added readOnly **** -->
+                 <div class="form-group">
+                    <label for="edit-years_operating">Years Operating</label>
+                    <input type="number" id="edit-years_operating" name="years_operating" min="0" readOnly>
+                </div>
+                 <!-- **** END MODIFICATION **** -->
+                <div class="form-group">
+                    <label for="edit-funding_goal">Funding Goal ($)</label>
+                    <input type="number" id="edit-funding_goal" name="funding_goal" min="0" step="1000">
+                </div>
+                 <div class="form-group">
+                    <label for="edit-funding_acquired">Funding Already Acquired ($)</label>
+                    <input type="number" id="edit-funding_acquired" name="funding_acquired" min="0" step="1000">
+                </div>
+                 <div class="form-group">
+                    <label for="edit-equity_offered">Equity Offered (%)</label>
+                    <input type="number" id="edit-equity_offered" name="equity_offered" min="0" max="100" step="0.1">
+                 </div>
+                 <button type="submit" class="button-style">Update Profile Details</button>
+             </form>
+         </section>
+
+
+         <!-- Section to Edit Financial History -->
+         <section class="detail-section">
+             <h3>Edit Financial History</h3>
+             <div id="financials-message-area"></div>
+              <form id="startup-financials-form">
+                  <div id="financial-history-edit-inputs">
+                      <p>Loading financial data...</p>
+                  </div>
+                  <button type="button" id="add-financial-year-edit" class="button-style secondary mt-1">Add Financial Year Record</button>
+                  <button type="submit" class="button-style mt-2">Update Financial History</button>
+              </form>
+         </section>
+    </main>
+
+    <footer>
+        <p>© 2024 CapitalBay. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

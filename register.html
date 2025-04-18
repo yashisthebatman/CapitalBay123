@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - CapitalBay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-register">
+
+    <header>
+        <h1>CapitalBay</h1>
+        <p>Connecting Innovators and Investors</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Browse Startups</a>
+        <!-- **** MODIFIED BLOCK **** -->
+        <span id="startup-links" style="display: none;">
+             <a href="my-startup.html">Update Profile</a>
+        </span>
+         <!-- **** END MODIFIED BLOCK **** -->
+        <span id="investor-links" style="display: none;"></span>
+        <span id="public-links">
+            <a href="login.html">Login</a>
+            <a href="register.html" class="active">Register</a>
+        </span>
+        <span id="user-links" style="display: none;"></span>
+    </nav>
+
+    <main>
+        <form id="register-form" class="auth-form initially-hidden">
+            <h2>Create Your Account</h2>
+            <div id="message-area"></div>
+
+            <!-- Common Fields -->
+            <div class="form-group">
+                <label for="name">Full Name / Founder Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+                 <small>Minimum 6 characters</small>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <!-- User Type Selection -->
+            <div class="form-group">
+                <label>Register As:</label>
+                <div>
+                    <input type="radio" id="type-startup" name="user_type" value="startup" required>
+                    <label for="type-startup">Startup</label>
+                    <input type="radio" id="type-investor" name="user_type" value="investor" required>
+                    <label for="type-investor">Investor</label>
+                </div>
+            </div>
+
+            <!-- Startup Specific Fields (Initially Hidden) -->
+            <div id="startup-specific-fields" style="display: none;">
+                <hr style="margin: 2rem 0;">
+                <h3>Startup Details</h3>
+
+                <div class="form-group">
+                    <label for="company_name">Company Name</label>
+                    <input type="text" id="company_name" name="company_name">
+                    <small>If different from your full name.</small>
+                </div>
+                <div class="form-group">
+                    <label for="description">Company Description</label>
+                    <textarea id="description" name="description" placeholder="Briefly describe your startup..."></textarea>
+                </div>
+                 <div class="form-group">
+                    <label for="industry">Industry</label>
+                    <input type="text" id="industry" name="industry" placeholder="e.g., FinTech, HealthTech, SaaS">
+                </div>
+                 <div class="form-group">
+                    <label for="website">Website URL</label>
+                    <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+                </div>
+                 <div class="form-group">
+                    <label for="logo_url">Logo URL</label>
+                    <input type="url" id="logo_url" name="logo_url" placeholder="https://link-to-your/logo.png">
+                </div>
+                 <div class="form-group">
+                    <label for="contact_phone">Contact Phone</label>
+                    <input type="tel" id="contact_phone" name="contact_phone" placeholder="Optional contact number">
+                </div>
+                <!-- **** YEARS OPERATING INPUT **** -->
+                 <div class="form-group">
+                    <label for="years_operating">Years Operating</label>
+                    <input type="number" id="years_operating" name="years_operating" min="0" value="0">
+                     <small>Enter the number of full years your company has been operating.</small>
+                </div>
+                <!-- ****************************** -->
+                <div class="form-group">
+                    <label for="funding_goal">Funding Goal ($)</label>
+                    <input type="number" id="funding_goal" name="funding_goal" min="0" step="1000" value="0">
+                </div>
+                 <div class="form-group">
+                    <label for="funding_acquired">Funding Already Acquired ($)</label>
+                    <input type="number" id="funding_acquired" name="funding_acquired" min="0" step="1000" value="0">
+                </div>
+                 <div class="form-group">
+                    <label for="equity_offered">Equity Offered (%)</label>
+                    <input type="number" id="equity_offered" name="equity_offered" min="0" max="100" step="0.1" value="0">
+                     <small>Percentage of company offered for the funding goal.</small>
+                </div>
+
+                 <!-- Financial History Section -->
+                 <div id="financial-history-section">
+                     <h4>Financial History</h4>
+                     <p><small>Revenue and profit/loss fields will be generated below based on 'Years Operating'.</small></p>
+                     <div id="financial-history-inputs">
+                         <!-- Financial year groups added dynamically by JS -->
+                     </div>
+                 </div>
+
+            </div>
+
+            <button type="submit">Register</button>
+
+            <p class="text-center mt-2">
+                Already have an account? <a href="login.html">Login here</a>
+            </p>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 CapitalBay. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

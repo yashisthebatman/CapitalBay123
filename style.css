@@ -1,0 +1,1044 @@
+/* frontend/css/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #4a90e2; /* A slightly softer blue */
+    --primary-dark: #3a7bc8; /* Darker shade for hover */
+    --secondary-color: #50e3c2; /* A teal accent */
+    --secondary-dark: #40bdaa; /* Darker shade */
+    --text-color: #5a5a5a; /* Slightly darker text */
+    --heading-color: #333;
+    --bg-color: #f8faff; /* Lighter, slightly blueish background */
+    --card-bg: #ffffff;
+    --border-color: #e1e8ed; /* Softer border */
+    --danger-color: #e74c3c; /* Brighter red */
+    --warning-color: #f39c12; /* Brighter yellow/orange */
+    --success-color: #2ecc71; /* Brighter green */
+    --low-risk-color: var(--success-color);
+    --avg-risk-color: var(--warning-color);
+    --high-risk-color: var(--danger-color);
+    --font-sans: 'Poppins', sans-serif;
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Global & Reset --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Slightly increased line-height */
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Header --- */
+header {
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    color: #fff;
+    padding: 2rem 1rem; /* More padding */
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border-bottom: 3px solid var(--primary-dark); /* Accent border */
+}
+header h1 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 2.8rem; /* Larger */
+    letter-spacing: -1px;
+}
+header p {
+    margin: 0.5rem 0 0;
+    font-weight: 300;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+/* --- Navigation --- */
+nav {
+    background-color: #fff; /* Lighter nav */
+    padding: 0.8rem 1rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky; /* Sticky nav */
+    top: 0;
+    z-index: 1000;
+}
+nav a, nav span { /* Target spans holding user info too */
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 0.8rem; /* Slightly less margin */
+    padding: 0.6rem 1.2rem; /* Adjusted padding */
+    border-radius: var(--border-radius-md); /* Consistent radius */
+    font-weight: 500; /* Medium weight */
+    transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block; /* Ensure padding works well */
+}
+nav a:hover, nav a.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    box-shadow: var(--shadow-sm);
+}
+nav #user-links {
+    color: var(--text-color); /* User greeting text color */
+    display: inline-block; /* Ensure it takes space */
+    vertical-align: middle; /* Align with other nav items */
+}
+nav #user-name {
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-right: 0.5rem;
+}
+nav #logout-button { /* Style logout button */
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    margin-left: 0.5rem;
+    background: var(--border-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer; /* Ensure cursor changes */
+    border-radius: var(--border-radius-sm);
+    transition: background-color 0.2s ease;
+    font-family: var(--font-sans); /* Ensure font consistency */
+    vertical-align: middle;
+}
+nav #logout-button:hover {
+     background: #ccc;
+}
+
+/* --- Main Content Area --- */
+main {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 2.5rem; /* More padding */
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius-lg);
+}
+.container { /* Use container class within main if needed */
+     padding: 0; /* Reset padding if main already has it */
+}
+h2 {
+    color: var(--heading-color);
+    text-align: center;
+    margin-top: 0; /* Remove top margin if first element */
+    margin-bottom: 2.5rem; /* More space */
+    font-weight: 600;
+    font-size: 1.8rem; /* Slightly larger */
+}
+
+/* --- Forms --- */
+.auth-form {
+    max-width: 480px; /* Slightly wider */
+    margin: 2rem auto;
+    padding: 3rem; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-md);
+}
+.auth-form h2 {
+    margin-bottom: 2.5rem; /* Match main heading */
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 1.8rem; /* More space */
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem; /* More space */
+    font-weight: 600;
+    font-size: 0.95rem; /* Slightly larger */
+    color: var(--heading-color);
+}
+/* Styling inline labels for radio buttons */
+.form-group input[type="radio"] + label {
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 0; /* Override block label margin */
+    font-weight: 400; /* Normal weight for radio labels */
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"],
+.form-group input[type="url"],
+.form-group input[type="tel"], /* Added tel */
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem 1.1rem; /* More padding */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md); /* Consistent radius */
+    box-sizing: border-box;
+    font-family: inherit; /* Inherit body font */
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff; /* Ensure bg */
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25); /* Slightly stronger focus */
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { /* Style placeholders */
+    color: #aaa;
+    opacity: 1;
+}
+.form-group small { /* Helper text */
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: #777;
+}
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+/* Select dropdown arrow styling */
+.form-group select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%20fill%3D%22%234a90e2%22%3E%3Cpath%20d%3D%22M215.4%2096.5l-80%2080a12%2012%200%2001-17%200l-80-80a12%2012%200%201117-17L128%20151l70.4-71.6a12%2012%200%200117%2017.1z%22%2F%3E%3C%2Fsvg%3E'); /* Updated arrow */
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em auto;
+    padding-right: 3rem; /* More space for arrow */
+}
+
+/* --- Financial History Inputs (Registration & Edit Forms) --- */
+#financial-history-section, /* Registration */
+#startup-financials-form /* Edit form container */ {
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+    padding-top: 2rem;
+}
+#financial-history-section h4,
+#startup-financials-form h3 /* Use h3 in edit form */ {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--primary-color); /* Match theme */
+    font-size: 1.1rem;
+}
+.financial-year-group {
+    border: 1px solid #eee;
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #fcfdff; /* Very light bg */
+    position: relative; /* For potential absolute positioning inside */
+}
+.financial-year-group strong { /* Year Label */
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+.financial-year-inputs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+    gap: 1.5rem;
+    margin-bottom: 1rem; /* Space before remove button */
+}
+
+/* *** ADDED/MODIFIED *** Style for Remove Financial Year Buttons */
+.remove-financial-year {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    background: #f1f3f5; /* Lighter grey */
+    color: var(--danger-color); /* Red text */
+    border: 1px solid #dee2e6;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.2s ease;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    margin-top: 0.5rem; /* Add some space */
+}
+.remove-financial-year:hover {
+    background: #e9ecef;
+    border-color: #ced4da;
+}
+.remove-financial-year:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3); /* Red focus ring */
+}
+
+/* --- Buttons --- */
+button, .button-style /* Add class for consistency */ {
+    display: inline-block;
+    background: linear-gradient(120deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.8rem 2rem; /* Adjusted padding */
+    border: none;
+    border-radius: var(--border-radius-md); /* Consistent radius */
+    cursor: pointer;
+    font-family: var(--font-sans); /* Explicitly set font family */
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px; /* More spacing */
+    transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    text-decoration: none; /* For link styled as button */
+    line-height: 1.5; /* Ensure text is centered vertically */
+}
+button:hover, .button-style:hover {
+    transform: translateY(-3px); /* More lift */
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(120deg, var(--primary-dark), var(--secondary-dark)); /* Darker gradient */
+}
+button:active, .button-style:active {
+     transform: translateY(-1px);
+     box-shadow: var(--shadow-sm);
+}
+button.secondary { /* Secondary button style */
+     background: #e9ecef; /* Lighter secondary */
+     color: var(--heading-color);
+     box-shadow: none;
+     font-weight: 500;
+     text-transform: none;
+     letter-spacing: normal; /* Use normal spacing for secondary */
+     font-family: inherit; /* Let secondary buttons inherit font */
+     border: 1px solid #ced4da; /* Add subtle border */
+}
+button.secondary:hover {
+    background: #ced4da;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+    color: #000;
+}
+/* Button within forms */
+.auth-form button[type="submit"],
+#startup-profile-form button[type="submit"], /* Specific forms */
+#startup-financials-form button[type="submit"] {
+    width: 100%; /* Make form submit buttons full width */
+    margin-top: 1rem; /* Add space above */
+}
+
+
+/* --- Message Styles --- */
+.message {
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-md);
+    margin: 1.5rem 0;
+    text-align: center;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+.error-message {
+    color: #fff; /* White text */
+    background-color: var(--danger-color);
+    border-color: darken(var(--danger-color), 10%);
+}
+.success-message {
+     color: #fff; /* White text */
+    background-color: var(--success-color);
+    border-color: darken(var(--success-color), 10%);
+}
+.warning-message { /* *** ADDED *** For minor warnings like duplicate year */
+    color: #856404; /* Dark yellow text */
+    background-color: #fff3cd; /* Light yellow background */
+    border-color: #ffeeba;
+}
+
+/* Message area within forms/pages */
+#message-area .message,
+#detail-message-area .message,
+#profile-message-area .message,
+#financials-message-area .message {
+    margin-top: 0; /* Remove top margin if first element */
+    margin-bottom: 1.5rem; /* Ensure space below message */
+}
+
+/* --- Filter Controls --- */
+.filter-container {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.filter-container span {
+    margin-right: 1rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    vertical-align: middle;
+}
+.filter-button {
+    background-color: #fff;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    margin: 0 0.3rem;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: none; /* Override general button */
+    text-transform: none; /* Override general button */
+    letter-spacing: 0; /* Override general button */
+    vertical-align: middle;
+    font-family: var(--font-sans); /* Ensure filter buttons use main font */
+}
+.filter-button:hover {
+    background-color: #f0f6ff; /* Light blue hover */
+    border-color: var(--primary-dark);
+    color: var(--primary-dark);
+    transform: none; /* Override general button */
+    box-shadow: none; /* Override general button */
+}
+.filter-button.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+
+/* --- Startup List & Cards --- */
+#startup-list-container {
+    min-height: 300px; /* Prevent container collapsing while loading */
+}
+#startup-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Wider cards */
+    gap: 2.5rem; /* More space */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.startup-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-lg); /* Match main */
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensure contents fit radius */
+}
+.startup-card:hover {
+     transform: translateY(-6px);
+     box-shadow: var(--shadow-lg);
+}
+
+/* Card Header */
+.startup-card .card-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #fcfdff; /* Slight header background */
+}
+.startup-card img.logo {
+    width: 55px; /* Fixed size */
+    height: 55px;
+    object-fit: contain;
+    border-radius: var(--border-radius-md);
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    background-color: #fff;
+    flex-shrink: 0; /* Prevent shrinking */
+    margin: 0; /* Remove default margins */
+}
+.startup-card .card-header-info {
+    flex-grow: 1;
+    min-width: 0; /* Allow text to wrap */
+}
+.startup-card h3 {
+    margin: 0 0 0.25rem 0; /* Adjust spacing */
+    color: var(--heading-color); /* Use heading color */
+    font-size: 1.25rem; /* Slightly larger */
+    font-weight: 600;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Add ellipsis if too long */
+}
+.startup-card .industry {
+    font-size: 0.8rem;
+    color: #777;
+    display: inline-block;
+    background-color: #e9ecef;
+    padding: 0.2rem 0.7rem;
+    border-radius: 10px; /* Pill shape */
+    font-weight: 500;
+}
+
+/* Card Body */
+.startup-card .card-description {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    flex-grow: 1; /* Allow description to take up space */
+    padding: 1.5rem; /* Add padding to body */
+    margin: 0; /* Reset margin */
+    line-height: 1.6;
+    /* Simple way to limit lines (might need JS for better cross-browser) */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: calc(1.6em * 3); /* Ensure space for 3 lines */
+}
+
+/* Card Footer Area */
+.startup-card .funding-info {
+    font-size: 0.9rem;
+    padding: 0 1.5rem 1rem; /* Add padding */
+    margin: 0;
+    color: #666;
+}
+.startup-card .funding-info span {
+    display: block;
+    margin-bottom: 0.5rem; /* Space below text */
+}
+.startup-card .funding-info strong {
+     font-weight: 600;
+     color: var(--heading-color);
+}
+/* Optional CSS Progress Bar */
+.progress-bar-container {
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.25rem;
+}
+.progress-bar {
+    height: 100%;
+    background-color: var(--secondary-color);
+    width: 0%; /* Width set by inline style */
+    transition: width 0.5s ease-in-out;
+}
+
+/* Risk Indicator */
+.startup-card .risk-indicator {
+    padding: 0 1.5rem 1.5rem; /* Add padding */
+    margin-top: 0.5rem; /* Space above badge */
+}
+.risk-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff; /* White text for all badges */
+    line-height: 1.3;
+}
+.risk-low-risk { background-color: var(--low-risk-color); }
+.risk-average-risk { background-color: var(--avg-risk-color); }
+.risk-high-risk { background-color: var(--high-risk-color); }
+.risk-unknown { background-color: #adb5bd; color: #fff; } /* Style for unknown risk */
+
+/* Card Button */
+.startup-card a.details-button {
+    /* Use the general button style via class */
+    display: block; /* Make it full width within the card */
+    margin: 0 1.5rem 1.5rem; /* Add margin */
+    padding: 0.7rem 1rem; /* Adjust padding */
+    font-size: 0.9rem;
+}
+
+
+/* --- Startup Detail Page --- */
+.startup-detail {
+    padding: 1.5rem; /* Add overall padding */
+}
+.startup-detail .detail-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2.5rem; /* More space */
+    gap: 2rem; /* More gap */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem; /* More padding */
+}
+.startup-detail img.logo {
+    width: 130px; /* Slightly larger */
+    height: 130px;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    border-radius: var(--border-radius-lg); /* Match main */
+    background-color: #fff;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-sm);
+}
+.startup-detail .header-info {
+    flex-grow: 1;
+    padding-top: 0.5rem; /* Align text better */
+}
+.startup-detail h2 { /* Company Name on Detail Page */
+    text-align: left;
+    margin-top: 0;
+    margin-bottom: 0.5rem; /* More space */
+    font-size: 2.2rem; /* Larger */
+    font-weight: 700; /* Bold */
+}
+.startup-detail .industry-tag { /* Detail page tag */
+     font-size: 0.9rem;
+     color: var(--text-color);
+     display: inline-block;
+     background-color: #e9ecef; /* Match card */
+     padding: 0.4rem 1rem; /* More padding */
+     border-radius: 15px; /* Pill shape */
+     margin-bottom: 1.2rem; /* More space */
+     font-weight: 500;
+}
+/* Style for general divs (Years, Website) and new contact items */
+.startup-detail .header-info div {
+    margin-bottom: 0.6rem; /* Consistent spacing */
+    font-size: 1rem;
+    line-height: 1.6; /* Ensure good line spacing */
+}
+.startup-detail .header-info strong {
+     font-weight: 600;
+     color: var(--heading-color);
+     margin-right: 0.5rem;
+     display: inline-block; /* Ensure margin works */
+     /* min-width: 80px; / / Optional: align labels */
+}
+.startup-detail .header-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    word-break: break-all; /* Break long URLs */
+}
+.startup-detail .header-info a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+/* Add a class for specific spacing if needed for contact items */
+.startup-detail .header-info .contact-info-item {
+    margin-top: 0.4rem; /* Add a bit of top margin */
+}
+
+/* --- General Detail Sections (Used on Detail Page and My Startup Page) --- */
+.detail-section {
+     margin-bottom: 2.5rem; /* More space */
+     padding: 2rem; /* More padding */
+     background-color: #fcfdff; /* Subtle background */
+     border: 1px solid var(--border-color);
+     border-radius: var(--border-radius-md); /* Consistent radius */
+     box-shadow: var(--shadow-sm);
+}
+.detail-section h3 {
+     border-bottom: 2px solid var(--primary-color); /* Thicker border */
+     padding-bottom: 0.8rem;
+     margin-bottom: 1.5rem; /* More space */
+     margin-top: 0;
+     font-size: 1.5rem; /* Larger section titles */
+     font-weight: 600;
+     color: var(--heading-color); /* Use heading color */
+}
+.detail-section p,
+.detail-section div:not(.form-group):not(.financial-year-group), /* Exclude form groups */
+.detail-section ul /* Style lists within sections too */ {
+     line-height: 1.8; /* More readable */
+     margin-bottom: 1rem; /* Consistent spacing */
+     font-size: 1rem;
+     word-wrap: break-word; /* Allow long text to wrap */
+}
+.detail-section strong {
+    /* Style for strong tags within general sections */
+    font-weight: 600;
+    color: var(--heading-color);
+    /* min-width: 180px; / * Wider alignment - REMOVED for better flexibility */
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+.detail-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    word-break: break-all; /* Break links */
+}
+.detail-section a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+/* Back link on detail page */
+.startup-detail a.back-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+.startup-detail a.back-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+
+/* --- Risk Analysis Section (Detail Page) --- */
+.risk-analysis-section {
+    border: 1px solid; /* Use standard border */
+    border-left: 5px solid; /* Accent border on the left */
+    padding: 1.5rem 2rem; /* More padding */
+    border-radius: var(--border-radius-md);
+    margin-bottom: 2.5rem; /* Match section spacing */
+    background-color: #fcfdff; /* Match section bg */
+    box-shadow: var(--shadow-sm); /* Add shadow */
+}
+.risk-analysis-section.low-risk { border-color: var(--low-risk-color); background-color: #f0fff4; }
+.risk-analysis-section.average-risk { border-color: var(--avg-risk-color); background-color: #fff8e1; }
+.risk-analysis-section.high-risk { border-color: var(--high-risk-color); background-color: #fff0f0; }
+.risk-analysis-section.unknown-risk { border-color: #adb5bd; background-color: #f8f9fa; } /* Style for unknown */
+
+.risk-analysis-section h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem; /* Less space below title */
+    font-size: 1.5rem; /* Match section title size */
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* More gap */
+    border-bottom: none; /* Remove h3 border */
+    padding-bottom: 0; /* Remove h3 padding */
+}
+/* Risk category text color */
+.risk-analysis-section.low-risk h3 { color: darken(var(--low-risk-color), 10%); }
+.risk-analysis-section.average-risk h3 { color: darken(var(--avg-risk-color), 15%); }
+.risk-analysis-section.high-risk h3 { color: darken(var(--high-risk-color), 10%); }
+.risk-analysis-section.unknown-risk h3 { color: #6c757d; }
+
+/* Icon before title */
+.risk-analysis-section h3::before {
+    content: '';
+    display: inline-block;
+    width: 12px; /* Smaller icon */
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+.risk-analysis-section.low-risk h3::before { background-color: var(--low-risk-color); }
+.risk-analysis-section.average-risk h3::before { background-color: var(--avg-risk-color); }
+.risk-analysis-section.high-risk h3::before { background-color: var(--high-risk-color); }
+.risk-analysis-section.unknown-risk h3::before { background-color: #adb5bd; }
+
+.risk-analysis-section .risk-summary {
+    font-size: 0.9rem; /* Smaller summary */
+    margin-bottom: 1.5rem; /* More space */
+    font-style: italic;
+    color: #666;
+    padding-left: calc(12px + 0.75rem); /* Indent summary past icon+gap */
+}
+.risk-analysis-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.risk-analysis-section li {
+    margin-bottom: 0.6rem; /* More space between items */
+    font-size: 0.95rem; /* Slightly larger text */
+    padding-left: 1.5em; /* More indent */
+    position: relative;
+    line-height: 1.6;
+}
+/* Custom bullet point */
+.risk-analysis-section li::before {
+    content: '•'; /* Default bullet */
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    line-height: 1.6; /* Match text */
+    opacity: 0.8;
+}
+.risk-analysis-section.low-risk li::before { content: '✔'; color: var(--low-risk-color); font-size: 0.9em; }
+.risk-analysis-section.average-risk li::before { content: '⚠'; color: var(--avg-risk-color); font-size: 0.9em; }
+.risk-analysis-section.high-risk li::before { content: '❗'; color: var(--high-risk-color); font-size: 0.9em; }
+.risk-analysis-section.unknown-risk li::before { content: '?'; color: #6c757d; font-size: 0.9em;}
+
+
+/* --- Financial History Table (Detail Page) --- */
+.financial-history-display table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color); /* Add table border */
+    border-radius: var(--border-radius-md); /* Rounded corners */
+    overflow: hidden; /* Clip content */
+    box-shadow: var(--shadow-sm);
+    font-family: var(--font-sans); /* Ensure table uses the correct font */
+    /* Consider table-layout fixed for more predictable columns */
+    /* table-layout: fixed; */
+}
+.financial-history-display th,
+.financial-history-display td {
+    text-align: left;
+    padding: 0.9rem 1.3rem; /* Slightly increase padding */
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle; /* Ensure vertical alignment */
+}
+.financial-history-display th {
+    background-color: #f8f9fa; /* Light header */
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--heading-color);
+    font-family: inherit;
+    white-space: nowrap; /* Prevent header text wrapping */
+}
+.financial-history-display td {
+    font-size: 0.95rem;
+    background-color: #fff; /* White rows */
+    font-family: inherit;
+}
+.financial-history-display tr:last-child td {
+    border-bottom: none;
+}
+/* Profit/Loss and Growth Styling */
+.financial-history-display .profit-positive,
+.financial-history-display .growth-positive { /* Combine classes */
+    color: var(--success-color);
+    font-weight: 500;
+}
+.financial-history-display .profit-negative,
+.financial-history-display .growth-negative { /* Combine classes */
+     color: var(--danger-color);
+     font-weight: 500;
+}
+
+/* --- Right-align numeric headers AND data --- */
+.financial-history-display th:nth-child(2), /* Revenue Header */
+.financial-history-display td:nth-child(2), /* Revenue Data */
+.financial-history-display th:nth-child(3), /* Profit Header */
+.financial-history-display td:nth-child(3), /* Profit Data */
+.financial-history-display th:nth-child(4), /* Growth Header */
+.financial-history-display td:nth-child(4)  /* Growth Data */
+{
+    text-align: right;
+}
+
+/* Optional: Set min-widths for better column spacing */
+.financial-history-display th:nth-child(1), /* Year Index Header */
+.financial-history-display td:nth-child(1) { /* Year Index Data */
+    text-align: left; /* Keep first column left-aligned */
+    /* min-width: 100px; / / Example: Give year index some space */
+    /* width: 20%; / / Alternative: Use percentage */
+}
+.financial-history-display th:nth-child(2), /* Revenue */
+.financial-history-display td:nth-child(2) {
+    /* min-width: 130px; */
+    /* width: 30%; */
+}
+.financial-history-display th:nth-child(3), /* Profit */
+.financial-history-display td:nth-child(3) {
+    /* min-width: 130px; */
+     /* width: 30%; */
+}
+.financial-history-display th:nth-child(4), /* Growth */
+.financial-history-display td:nth-child(4) {
+    /* min-width: 120px; */
+     /* width: 20%; */
+}
+
+/* --- My Startup Page - Analytics Section --- */
+#startup-analytics ul#interested-investors-list {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-top: 1rem;
+}
+#startup-analytics ul#interested-investors-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+#startup-analytics ul#interested-investors-list li:last-child {
+    border-bottom: none;
+}
+#startup-analytics ul#interested-investors-list strong {
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-right: 0.5rem;
+}
+#startup-analytics ul#interested-investors-list a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 400; /* Lighter weight for email */
+}
+#startup-analytics ul#interested-investors-list a:hover {
+    text-decoration: underline;
+    color: var(--primary-dark);
+}
+
+/* --- Utility Classes --- */
+.loading {
+    text-align: center;
+    padding: 4rem; /* More padding */
+    font-style: italic;
+    color: #888;
+    font-size: 1.2rem; /* Larger */
+}
+.text-center { text-align: center; }
+.text-right { text-align: right; } /* *** ADDED *** */
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+a { color: var(--primary-color); text-decoration: none; }
+a:hover { color: var(--primary-dark); text-decoration: underline;}
+
+/* Style for initially hiding content to prevent FOUC before redirect */
+main.initially-hidden,
+.auth-form.initially-hidden {
+    visibility: hidden; /* Hides but preserves layout space */
+    /* Alternatively: display: none; but might cause layout shifts */
+}
+
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid var(--border-color);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+     #startup-list { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+     .startup-detail .detail-section strong { /* Removed min-width for flexibility */ }
+     main { padding: 2rem; }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    header h1 { font-size: 2.2rem; }
+    header p { font-size: 1rem; }
+    nav a, nav span { margin: 0 0.3rem; padding: 0.5rem 0.8rem;}
+    main { margin: 1.5rem auto; padding: 1.5rem; }
+    h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+    #startup-list { grid-template-columns: 1fr; gap: 1.5rem; }
+    .auth-form { padding: 2rem; }
+    .startup-detail .detail-header { flex-direction: column; align-items: center; text-align: center;}
+    .startup-detail img.logo { margin-bottom: 1.5rem; width: 100px; height: 100px; }
+    .startup-detail h2 { text-align: center; font-size: 1.8rem;}
+    .startup-detail .industry-tag { display: block; margin: 0 auto 1rem; text-align: center;}
+    .financial-year-inputs { grid-template-columns: 1fr; } /* Stack revenue/profit/year inputs */
+    .detail-section { padding: 1.5rem; }
+    .detail-section h3 { font-size: 1.3rem; }
+
+    /* Stack labels in detail header info */
+    .startup-detail .header-info strong {
+        display: block; /* Stack label */
+        min-width: unset;
+        margin-bottom: 0.1rem; /* Space below stacked label */
+        margin-right: 0;
+        text-align: center; /* Center labels on mobile */
+    }
+    .startup-detail .header-info div {
+        text-align: center; /* Center the values too */
+    }
+    .startup-detail .header-info a {
+        display: block; /* Ensure links take full width */
+        text-align: center;
+    }
+
+     /* Stack labels within general detail sections too */
+    .startup-detail .detail-section strong {
+        display: block;
+        min-width: unset;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+    }
+
+    .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding-bottom: 1rem;}
+    .filter-container span { margin-bottom: 0.5rem; margin-right: 0; width: 100%; text-align: center;}
+    .filter-button { margin: 0.2rem; flex-grow: 1; /* Allow buttons to take space */}
+    .risk-analysis-section { padding: 1rem 1.5rem;}
+    .risk-analysis-section h3 { font-size: 1.3rem; }
+
+    /* Mobile Financial Table Adjustments */
+    .financial-history-display table,
+    .financial-history-display thead,
+    .financial-history-display tbody,
+    .financial-history-display th,
+    .financial-history-display td,
+    .financial-history-display tr {
+        display: block; /* Force table elements to stack */
+    }
+    .financial-history-display thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px; /* Hide table header but keep accessible */
+    }
+    .financial-history-display tr {
+        border: 1px solid var(--border-color);
+        margin-bottom: 1rem;
+        border-radius: var(--border-radius-md);
+        background-color: #fff; /* Ensure background for stacked rows */
+        box-shadow: var(--shadow-sm);
+        overflow: hidden; /* Contain pseudo elements */
+     }
+    .financial-history-display td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%; /* Space for label */
+        text-align: right; /* Right align data */
+        min-height: 2.5em; /* Ensure space even if empty, accommodate label */
+        padding-top: 0.6rem; /* Add padding for better vertical alignment */
+        padding-bottom: 0.6rem;
+        padding-right: 1rem; /* Add padding on the right */
+        display: flex; /* Use flex for better alignment */
+        justify-content: flex-end; /* Align content (value) to the right */
+        align-items: center; /* Vertically center */
+    }
+     .financial-history-display tr td:last-child {
+        border-bottom: 0; /* No border on last cell of stacked row */
+    }
+     .financial-history-display td:before {
+        /* Use data-* attribute for label (Set in JS) */
+        /* *** CSS RULE COMPLETED HERE *** */
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%; /* Adjust width of the label area */
+        padding-left: 1rem; /* Padding for the label */
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600; /* Make label bold */
+        color: var(--heading-color);
+        /* Vertically align the label text */
+        display: flex;
+        align-items: center;
+        height: 100%;
+        top: 0;
+    }
+}
+
+/* Further small screen adjustments if needed */
+@media (max-width: 480px) {
+    body { font-size: 14px; }
+    header h1 { font-size: 1.8rem; }
+    main { padding: 1rem; margin: 1rem auto; }
+    .auth-form { padding: 1.5rem; }
+    .button-style, button { padding: 0.7rem 1.5rem; font-size: 0.9rem;}
+    nav a, nav span { padding: 0.4rem 0.6rem; margin: 0 0.2rem;}
+    .financial-history-display td { padding-left: 40%; } /* More space for content */
+    .financial-history-display td:before { width: 35%; } /* Adjust label width */
+}

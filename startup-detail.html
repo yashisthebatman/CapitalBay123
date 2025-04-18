@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Details - CapitalBay</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body id="page-startup-detail">
+
+    <header>
+        <h1>CapitalBay</h1>
+        <p>Connecting Innovators and Investors</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Browse Startups</a>
+        <!-- **** MODIFIED BLOCK **** -->
+        <span id="startup-links" style="display: none;">
+             <a href="my-startup.html">Update Profile</a>
+        </span>
+         <!-- **** END MODIFIED BLOCK **** -->
+        <span id="investor-links" style="display: none;"></span>
+        <span id="public-links">
+            <a href="login.html">Login</a>
+            <a href="register.html">Register</a>
+        </span>
+        <span id="user-links" style="display: none;"></span>
+    </nav>
+
+    <main class="initially-hidden">
+        <div id="loading-indicator" class="loading">Loading startup details...</div>
+
+        <div id="startup-detail-content" class="startup-detail" style="display: none;"> <!-- Hidden until loaded -->
+            <!-- Header Section -->
+            <div class="detail-header">
+                <img src="" alt="Startup Logo" class="logo" id="detail-logo">
+                <div class="header-info">
+                    <h2 id="detail-company-name">Startup Name</h2>
+                    <span class="industry-tag" id="detail-industry">Industry</span>
+                    <div><strong>Years Operating:</strong> <span id="detail-years-operating">N/A</span></div>
+                    <div><strong>Website:</strong> <span id="detail-website">N/A</span></div>
+                    <div class="contact-info-item"><strong>Founder:</strong> <span id="detail-founder-name">N/A</span></div>
+                    <div class="contact-info-item"><strong>Founder Email:</strong> <span id="detail-founder-email">N/A</span></div>
+                     <div class="contact-info-item"><strong>Contact Phone:</strong> <span id="detail-contact-phone">N/A</span></div>
+                </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="detail-section">
+                <h3>Description</h3>
+                <p id="detail-description">Loading description...</p>
+            </div>
+
+            <!-- Funding Section -->
+            <div class="detail-section">
+                <h3>Funding & Valuation</h3>
+                <div><strong>Funding Goal:</strong> <span id="detail-funding-goal">Loading...</span></div>
+                <div><strong>Funding Acquired:</strong> <span id="detail-funding-acquired">Loading...</span></div>
+                <div><strong>Equity Offered:</strong> <span id="detail-equity-offered">Loading...</span></div>
+                 <div><strong>Estimated Pre-Money Valuation:</strong> <span id="detail-calculated-valuation">Calculating...</span></div>
+            </div>
+
+             <!-- Risk Analysis Section -->
+            <div id="risk-analysis-section" class="detail-section risk-analysis-section unknown-risk" style="display: none;">
+                <h3 id="risk-category-title">Risk Analysis</h3>
+                <p id="risk-summary" class="risk-summary">Calculating risk...</p>
+                <strong>Key Factors:</strong>
+                <ul id="risk-reasons">
+                    <li>Loading factors...</li>
+                </ul>
+            </div>
+
+
+            <!-- Financial History Section -->
+            <div class="detail-section financial-history-display">
+                <h3>Financial History</h3>
+                 <table>
+                     <thead>
+                         <tr>
+                             <th>Year</th>
+                             <th class="text-right">Revenue</th>
+                             <th class="text-right">Profit/Loss</th>
+                             <th class="text-right">Revenue Growth (YoY)</th>
+                         </tr>
+                     </thead>
+                     <tbody id="financial-history-body">
+                         <!-- Rows added by JS -->
+                          <tr><td colspan="4" class="text-center">Loading financial data...</td></tr>
+                     </tbody>
+                 </table>
+            </div>
+
+            <!-- Investor Actions -->
+             <div id="detail-message-area"></div> <!-- For interest success/error messages -->
+            <div id="investor-interest-action" class="text-center">
+                 <!-- Express/Withdraw Interest Button added by JS if applicable -->
+             </div>
+
+
+            <a href="index.html" class="back-link">← Back to Startup List</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 CapitalBay. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
